@@ -226,14 +226,14 @@ Engine.prototype.goInfiniteCommand = function (infoHandler) {
             var stringifiedLine = S(lines[i]);
 
             if (stringifiedLine.startsWith('info') && infoHandler) {
-                console.log(infoHandler);
+
                 var match = infoRegex.exec(stringifiedLine);
                 if (match) {
                     var captures = match.captures;
                     Object.keys(captures).forEach(function(key){
                        captures[key] = captures[key][0];
                     });
-
+                    
                     infoHandler(captures);
                 }
             }
