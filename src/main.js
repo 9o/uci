@@ -28,6 +28,7 @@ Engine.prototype.runProcess = function () {
     var self = this;
     var deferred = Q.defer();
     this.engineProcess = spawn(this.engineFile);
+    console.log(this.engineProcess);
     var timer;
     this.engineProcess.once('error', function (error) {
         clearInterval(timer);
@@ -233,7 +234,7 @@ Engine.prototype.goInfiniteCommand = function (infoHandler) {
                     Object.keys(captures).forEach(function(key){
                        captures[key] = captures[key][0];
                     });
-                    
+
                     infoHandler(captures);
                 }
             }
